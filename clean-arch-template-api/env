@@ -1,0 +1,4 @@
+#MongoDB Configurations
+DATABASE_NAME=notes_app
+LOCAL_URI=mongodb://localhost:27018
+PROD_URI=mongodb+srv://joao:joao@cluster0.rekdk.mongodb.net/notes_app?retryWrites=true&w=majority

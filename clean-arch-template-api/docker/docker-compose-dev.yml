@@ -1,0 +1,44 @@
+version: '3.5'
+services:
+  spring-boot :
+    container_name: app
+    build: ../.
+    networks:
+      - bubble
+    ports:
+      - '8080:8080'
+      - '5005:5005'
+    environment:
+      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+      - DATABASE_NAME=notes_app
+      - HOST_DB=mongo
+      - PORT_DB=27017
+    links:
+      - mongo
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo:4.2
+    networks:
+      - bubble
+    environment:
+      - MONGO_INITDB_DATABASE=notes_app
+    ports:
+      - 27018:27017
+    command: mongod --maxConns 10000
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_SERVER: mongo
+    links:
+      - mongo
+    networks:
+      - bubble
+networks:
+  bubble:
+    driver: bridge
+    external: true
