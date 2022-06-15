@@ -33,6 +33,11 @@ dependencies {
 
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // https://mvnrepository.com/artifact/br.com.caelum.stella/caelum-stella-core
+    implementation 'br.com.caelum.stella:caelum-stella-core:2.1.5'
+
+
 }
 
 tasks.named('jar') {

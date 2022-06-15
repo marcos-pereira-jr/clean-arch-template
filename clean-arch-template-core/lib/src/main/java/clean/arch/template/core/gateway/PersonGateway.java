@@ -2,7 +2,7 @@ package clean.arch.template.core.gateway;
 
 
 
-import clean.arch.template.core.domain.Person;
+import clean.arch.template.core.domain.person.Person;
 
 import java.util.List;
 

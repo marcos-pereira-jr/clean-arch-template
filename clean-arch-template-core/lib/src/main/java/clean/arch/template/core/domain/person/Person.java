@@ -1,4 +1,4 @@
-package clean.arch.template.core.domain;
+package clean.arch.template.core.domain.person;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 public class Person {
 
     private String name;
+
 
 }
